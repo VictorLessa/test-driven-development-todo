@@ -2,9 +2,9 @@ name: CD
 on:
   # Só irá rodar nas seguintes situações das seguintes branhces
   push:
-    branches: [development]
+    branches: [master]
   pull_request:
-    branches: [development]
+    branches: [master]
 
 jobs:
   check-bats-version:
