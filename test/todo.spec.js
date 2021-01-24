@@ -9,7 +9,7 @@ describe("todo", () => {
     sandbox = createSandbox();
   });
   afterEach(() => sandbox.restore());
-  describe("#isValis", () => {
+  describe("#isValid", () => {
     it("should return invalid when creating an object without text", () => {
       const data = { text: "", when: "" };
 

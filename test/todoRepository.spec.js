@@ -10,7 +10,7 @@ describe("todoRepository", () => {
     sandbox = createSandbox();
     todoRepository = new TodoRepository();
   });
-  describe("method signature", () => {
+  describe("methods signature", () => {
     it("should call find from lokijs", () => {
       const expected = [
         {

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npx mocha --parallel --exit test/",
     "test:dev": "npx mocha test/ -w",
-    "test:cov": "npx nyc --reporters=html,text npm test",
+    "test:cov": "npx nyc --reporters=html npm test",
     "start": "node src/index.js"
   },
   "keywords": [],
@@ -18,6 +18,11 @@
     "nyc": "^15.1.0",
     "sinon": "^9.2.2"
   },
+  "all": true,
+  "include": [
+    "test/**.js"
+  ],
+  "exclude": [],
   "dependencies": {
     "lokijs": "^1.5.11"
   }

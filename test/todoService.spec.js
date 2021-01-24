@@ -1,11 +1,9 @@
 const { describe, it, before, beforeEach, afterEach } = require("mocha");
 const { expect } = require("chai");
 const { createSandbox } = require("sinon");
-const TodoRepository = require("../src/todoRepository.js");
 const Todo = require("../src/todo.js");
 const TodoService = require("../src/todoService.js");
 describe("todoService", () => {
-  let todoRepository;
   let todoService;
   let sandbox;
   beforeEach(() => {
@@ -52,8 +50,11 @@ describe("todoService", () => {
         when: new Date("20-12-10"),
         status: "",
       });
+
       const result = todoService.create(todo);
+
       Reflect.deleteProperty(todo, "id");
+
       expect(result).to.be.deep.equal({
         error: "invalid data",
         data: todo,
@@ -72,6 +73,7 @@ describe("todoService", () => {
         when: new Date("2020-12-01 12:00:00 GMT-0"),
         status: "",
       });
+
       const today = new Date("2020-12-02");
       sandbox.useFakeTimers(today.getTime());
 
@@ -100,6 +102,7 @@ describe("todoService", () => {
         when: new Date("2020-12-01 12:00:00 GMT-0"),
         status: "",
       });
+
       const today = new Date("2020-11-02");
       sandbox.useFakeTimers(today.getTime());
 
@@ -109,6 +112,7 @@ describe("todoService", () => {
         ...todo,
         status: "Pending",
       };
+
       expect(
         todoService.todoRepository.create.calledOnceWithExactly(
           expectedCallWith

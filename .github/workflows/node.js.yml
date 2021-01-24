@@ -1,0 +1,16 @@
+name: CD
+on:
+  # Só irá rodar nas seguintes situações das seguintes branhces
+  push:
+    branches: [development]
+  pull_request:
+    branches: [development]
+
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm i
+      - run: npm run test
